@@ -1,3 +1,8 @@
+
+filetype off
+call pathogen#runtime_append_all_bundles()
+filetype plugin indent on
+
 set whichwrap=b,s,<,>,[,]
 set wildignore=*.pyc
 nnoremap <silent> <F8> :Tlist<CR> 
