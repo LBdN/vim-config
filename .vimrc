@@ -44,7 +44,7 @@ let g:delimitMate_apostrophes = ''
 "Set mapleader
 let mapleader = ","
 let g:mapleader = ","
-map <leader>t :FuzzyFinderTextMate<CR>
+"map <leader>t :FuzzyFinderTextMate<CR>
 
 """"""""""""""""""""""""""""""
 " Python section
