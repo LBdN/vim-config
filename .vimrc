@@ -2,6 +2,7 @@
 filetype off
 call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
+call pathogen#helptags()
 
 set whichwrap=b,s,<,>,[,]
 set wildignore=*.pyc
