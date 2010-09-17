@@ -96,8 +96,11 @@ au FileType python inoremap <buffer> $i import
 au FileType python inoremap <buffer> $p print
 au FileType python inoremap <buffer> $d """<cr>"""<esc>O
 au FileType python inoremap <buffer> $ss self.
+au BufRead,BufNewFile *.gcf        set filetype=gcf
+au FileType gcf exe ":silent 1,$!python ~/gamr7/code/gamr7_lib/security/gcf_converter.py -d %:p"
+au BufRead,BufNewFile *.gcf        set filetype=xml
 au FileType xml exe ":silent 1,$!tidy -xml -i -w 0 2>/dev/null"
-au FileType gcf exe ":silent 1,$!python ~/gamr7/trunk/code/gamr7_lib/security/gcf_converter.py -d 2>/dev/null"
+"au FileType gcf exe ":silent 1,$!python ~/gamr7/trunk/code/gamr7_lib/security/gcf_converter.py -d 2>/dev/null"
 
 
 """"""""""""""""""""""""""""""
