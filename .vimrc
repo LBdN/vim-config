@@ -140,3 +140,5 @@ endfunction
 """"""""""""""""""""""""""""""
 
 command Rst :!pandoc -f rst -t html % > /tmp/rstprev.html && see /tmp/rstprev.html
+
+set tags=tags;$HOME
