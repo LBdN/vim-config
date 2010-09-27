@@ -4,13 +4,14 @@ call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
 call pathogen#helptags()
 
+"Set mapleader
+let mapleader = ","
+let g:mapleader = ","
+
 " Quickly edit/reload the vimrc file
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
-"Set mapleader
-let mapleader = ","
-let g:mapleader = ","
 
 " This means that you can have unwritten changes to a file and open a new file using :e, 
 " without being forced to write or undo your changes first. 
@@ -69,6 +70,12 @@ map <F12> :Align
 " deprecated 
 "vmap gl :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 "nnoremap <silent> <F8> :Tlist<CR> 
+"python << EOL
+"import vim
+"def EvaluateCurrentRange():
+    "eval(compile('\n'.join(vim.current.range),'','exec'),globals())
+"EOL
+"map <C-h> :py EvaluateCurrentRange()
 
 map œ $
 imap œ $
@@ -108,12 +115,6 @@ au FileType xml exe ":silent 1,$!tidy -xml -i -w 0 2>/dev/null"
 autocmd BufRead *.py set makeprg=python\ -c\ \"import\ py_compile,sys;\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"
 autocmd BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
-python << EOL
-import vim
-def EvaluateCurrentRange():
-    eval(compile('\n'.join(vim.current.range),'','exec'),globals())
-EOL
-map <C-h> :py EvaluateCurrentRange()
 
 
 """"""""""""""""""""""""""""""
