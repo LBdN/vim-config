@@ -62,8 +62,8 @@ se et ts=8 sw=4 softtabstop=4 smarttab
 au BufEnter *.py set sw=4 sts=4 ts=4 et sta ai
 nnoremap <silent> <C-N> :bn<CR>
 nnoremap <silent> <C-P> :bp<CR>
-map <F2> :NERDTreeToggle
-map <F3> :py GenerateTags()
+map <F2> :NERDTreeToggle<CR>
+map <F3> :py GenerateTags()<CR>
 map <F4> :cd %:h
 map <F5> :!gnome-terminal -e "python2.6 -m pdb %"<CR><CR>
 map <F6> :!xterm -hold -e "python2.6 -m pdb % -v"<CR><CR>
@@ -220,9 +220,9 @@ def GenerateTags():
     cmd = "ctags -R --tag-relative=yes --languages=Python --python-kinds=-i -f $GAMR7_DEVCODE_PATH/tags $GAMR7_DEVCODE_PATH"
     subprocess.Popen(cmd, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True).stdin
     cmd = "pycscope.py -R $GAMR7_DEVCODE_PATH"
-    subprocess.Popen(cmd, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, close_fds=True).stdin
+    os.system(cmd)
     os.chdir(old_cwd)
-    vim.command("cs add %s" % (os.environ['GAMR7_DEVCODE_PATH'] + '/cscope.out')) 
+    vim.command("cs reset")
 EOL
 
 set tags=tags;$HOME
